@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f2">
+  <meta name="description" content="우리 동네 실시간 미세먼지 신호등">
+  <title>우리 동네 공기 신호등</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="공기 신호등 홈"><span class="brand-mark">✳</span><span>공기 신호등</span></a>
+      <span class="live-label"><i></i> 에어코리아 실시간 정보</span>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">오늘 우리 동네 공기</p>
+        <h1>숨 쉬기 좋은 하루,<br>먼저 확인해요.</h1>
+        <p class="intro">측정소에서 온 최신 정보로 지역의 공기를 살펴보세요.</p>
+      </div>
+      <div class="controls">
+        <label for="region">지역 선택</label>
+        <div class="select-wrap"><select id="region" aria-label="시도 선택">
+          <option>전국</option><option>서울</option><option>부산</option><option>대구</option><option>인천</option><option>광주</option><option>대전</option><option>울산</option><option>세종</option><option>경기</option><option>강원</option><option>충북</option><option>충남</option><option>전북</option><option>전남</option><option>경북</option><option>경남</option><option>제주</option>
+        </select><span aria-hidden="true">⌄</span></div>
+        <button id="refresh" class="refresh" type="button" aria-label="정보 새로고침">↻</button>
+      </div>
+    </section>
+
+    <section class="summary" id="summary" aria-live="polite">
+      <div class="summary-left"><span id="conditionIcon" class="condition-icon">☁️</span><div><p class="summary-kicker" id="summaryRegion">서울 평균 미세먼지</p><h2 id="condition">정보를 불러오는 중</h2><p class="advice" id="advice">잠시만 기다려 주세요.</p></div></div>
+      <div class="average"><strong id="average">—</strong><span>㎍/㎥ <small>PM10 평균</small></span></div>
+      <div class="summary-meta"><span>초미세먼지 평균</span><strong id="averageFine">— <small>㎍/㎥</small></strong><span id="updated">업데이트 시각 확인 중</span></div>
+    </section>
+
+    <section class="section-head"><div><p class="eyebrow">STATION REPORT</p><h2>측정소별 공기 현황</h2></div><span id="stationCount" class="count">불러오는 중</span></section>
+    <div id="message" class="message" role="status" hidden></div>
+    <section id="stations" class="station-grid" aria-label="측정소별 대기질"></section>
+    <footer><span>자료 출처 · 한국환경공단 에어코리아</span><span>측정 자료는 매시간 갱신되며 측정소 상황에 따라 값이 비어 있을 수 있어요.</span></footer>
+  </main>
+</body>
+</html>
